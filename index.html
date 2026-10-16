@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#09090b" />
+    <meta name="description" content="Marketplace de desejos inusitados e serviços únicos.">
+    
+    <!-- iOS / Apple Mobile Web App Config -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="c.pandox" />
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/742/742751.png" />
+
+    <link rel="manifest" href="/manifest.json">
+    <title>c.pandox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              pandora: {
+                primary: '#8B5CF6', // Vibrant Purple
+                secondary: '#F97316', // Energetic Orange
+                bg: 'var(--bg-color)',
+                card: 'var(--card-bg)',
+                text: 'var(--text-color)',
+                muted: 'var(--muted-text)',
+                'muted-bg': 'var(--muted-bg)'
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Outfit', 'sans-serif'],
+            },
+            backgroundImage: {
+              'pandora-gradient': 'linear-gradient(135deg, #8B5CF6 0%, #F97316 100%)',
+              'dark-gradient': 'radial-gradient(circle at center, #1f1f22 0%, #09090b 100%)',
+            },
+            animation: {
+              'bounce-slow': 'bounce 3s infinite',
+              'neon': 'neon-pulse 2s infinite ease-in-out',
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-color: #ffffff;
+        --text-color: #111827;
+        --card-bg: #f3f4f6;
+        --muted-bg: #f9fafb;
+        --muted-text: #6b7280;
+        --border-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .dark {
+        --bg-color: #09090b;
+        --text-color: #F3F4F6;
+        --card-bg: #18181b;
+        --muted-bg: #111114;
+        --muted-text: #a1a1aa;
+        --border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: 'Inter', sans-serif;
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        /* Mobile Native Feel */
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        user-select: none;
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+      
+      /* Reabilita seleção de texto apenas onde necessário */
+      input, textarea, p, h1, h2, h3, span {
+        user-select: text;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--card-bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3f3f46;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8B5CF6;
+      }
+      
+      .text-gradient {
+        background: linear-gradient(to right, #8B5CF6, #F97316);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Neon Pulse Animation for Category Button */
+      @keyframes neon-pulse {
+        0% {
+          box-shadow: 0 0 5px #8B5CF6, 0 0 10px #8B5CF6;
+          transform: scale(1);
+        }
+        50% {
+          box-shadow: 0 0 20px #8B5CF6, 0 0 30px #8B5CF6, 0 0 40px rgba(139, 92, 246, 0.5);
+          transform: scale(1.02);
+        }
+        100% {
+          box-shadow: 0 0 5px #8B5CF6, 0 0 10px #8B5CF6;
+          transform: scale(1);
+        }
+      }
+
+      /* Luminous Text Flash for Hero Subtitle */
+      @keyframes luminous-flash {
+        0%, 100% {
+          text-shadow: 0 0 10px #8B5CF6, 0 0 20px #8B5CF6, 0 0 40px #F97316;
+          opacity: 1;
+        }
+        50% {
+          text-shadow: 0 0 2px #8B5CF6, 0 0 5px #F97316;
+          opacity: 0.8;
+        }
+      }
+      
+      .animate-luminous {
+        animation: luminous-flash 1.5s infinite ease-in-out;
+      }
+      /* Yellow Neon Pulse for Inspirations */
+      @keyframes yellow-neon-pulse {
+        0% {
+          box-shadow: 0 0 10px #FACC15, 0 0 20px #FACC15;
+          transform: scale(1);
+        }
+        50% {
+          box-shadow: 0 0 30px #FACC15, 0 0 50px #FACC15, 0 0 70px rgba(250, 204, 21, 0.7);
+          transform: scale(1.08);
+        }
+        100% {
+          box-shadow: 0 0 10px #FACC15, 0 0 20px #FACC15;
+          transform: scale(1);
+        }
+      }
+      
+      .animate-neon-yellow {
+        animation: yellow-neon-pulse 2s infinite ease-in-out;
+      }
+
+      @keyframes arrow-bounce {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(10px); }
+      }
+      .animate-arrow-bounce {
+        animation: arrow-bounce 1s infinite;
+      }
+
+      @keyframes shake {
+        10%, 90% { transform: translate3d(-1px, 0, 0); }
+        20%, 80% { transform: translate3d(2px, 0, 0); }
+        30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+        40%, 60% { transform: translate3d(4px, 0, 0); }
+      }
+      .animate-shake {
+        animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
