@@ -396,7 +396,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSignup, onCancel, onSwitchToL
                       setFormData({...formData, cpf: formatCPF(e.target.value)});
                       if (formErrors.cpf) setFormErrors(prev => ({...prev, cpf: ''}));
                     }}
-                    className={`w-full bg-black/5 border rounded-xl p-3 text-black outline-none transition-all ${formErrors.cpf ? 'border-red-500 bg-red-500/5' : 'border-black/10 focus:border-pandora-primary'}`}
+                    className={`w-full bg-black/5 border rounded-xl p-3 text-black outline-none text-white transition-all ${formErrors.cpf ? 'border-red-500 bg-red-500/5' : 'border-black/10 focus:border-pandora-primary'}`}
                     placeholder="000.000.000-00"
                   />
                   {formErrors.cpf && <p className="text-[10px] text-red-500 font-bold mt-1 ml-1">{formErrors.cpf}</p>}
@@ -410,7 +410,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSignup, onCancel, onSwitchToL
                       setFormData({...formData, phone: e.target.value});
                       if (formErrors.phone) setFormErrors(prev => ({...prev, phone: ''}));
                     }}
-                    className={`w-full bg-black/5  border rounded-xl p-3 text-black outline-none transition-all ${formErrors.phone ? 'border-red-500 bg-red-500/5' : 'border-black/10 focus:border-pandora-primary'}`}
+                    className={`w-full bg-black/5 text-white  border rounded-xl p-3 text-black outline-none transition-all ${formErrors.phone ? 'border-red-500 bg-red-500/5' : 'border-black/10 focus:border-pandora-primary'}`}
                     placeholder="(00) 00000-0000"
                   />
                   {formErrors.phone && <p className="text-[10px] text-red-500 font-bold mt-1 ml-1">{formErrors.phone}</p>}
